@@ -1,0 +1,54 @@
+name: Code Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint HTML / CSS / JS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install linters
+        run: npm install -g htmlhint stylelint stylelint-config-standard eslint
+
+      - name: Lint HTML
+        run: htmlhint index.html --config .htmlhintrc
+
+      - name: Lint CSS
+        run: stylelint style.css --config .stylelintrc.json
+
+      - name: Lint JavaScript
+        run: eslint script.js --no-eslintrc -c .eslintrc.json
+
+      - name: Notify Telegram on failure
+        if: failure()
+        run: |
+          MSG="❌ *Code Check Fallito*
+
+  📌 PR #${{ github.event.pull_request.number }} — ${{ github.event.pull_request.title }}
+  👤 \`${{ github.event.pull_request.user.login }}\`
+  🌿 \`${{ github.event.pull_request.head.ref }}\` → \`main\`
+
+  ⚠️ Uno o più controlli non sono passati.
+  Controlla i log prima del merge.
+
+  🔗 [Vedi i dettagli](${{ github.event.pull_request.html_url }}/checks)"
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"chat_id\": \"${{ secrets.TELEGRAM_CHAT_ID }}\",
+              \"text\": $(echo "$MSG" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))'),
+              \"parse_mode\": \"Markdown\",
+              \"disable_web_page_preview\": true
+            }"

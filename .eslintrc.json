@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "error",
+    "no-console": "off",
+    "eqeqeq": "error",
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "semi": ["warn", "always"],
+    "no-unreachable": "error",
+    "no-duplicate-case": "error"
+  }
+}
