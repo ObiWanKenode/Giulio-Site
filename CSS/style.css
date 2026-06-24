@@ -417,6 +417,25 @@ main {
   color: var(--muted);
 }
 
+.skill-card--wide {
+  flex-direction: row;
+  align-items: flex-start;
+  min-width: min(100%, 420px);
+  max-width: 520px;
+  gap: 1rem;
+  text-align: left;
+}
+
+.skill-card--wide .skill-icon { font-size: 2rem; flex-shrink: 0; }
+.skill-card--wide .skill-name { font-size: 1rem; color: var(--text); margin-bottom: .35rem; }
+
+.skill-desc {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
 /* ===== CONTATTI SECTION ===== */
 .contatti-section {
   padding: 1rem 0 5rem;
