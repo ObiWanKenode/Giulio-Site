@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giulio Peluso — Home</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="img/logo-sito-giulio.png" alt="Logo Giulio" />
+        <span>GiulioSite</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="chi-sono.html">Chi sono</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <img src="img/me.jfif" alt="Foto di Giulio" class="hero-avatar" />
+        <p class="hero-greeting">Ciao, sono</p>
+        <h1 class="hero-name">Giulio Peluso</h1>
+        <p class="hero-desc">
+          Studente di Informatica, appassionato di programmazione e sviluppo web.
+          Mi piace creare progetti concreti e continuare ad imparare ogni giorno.
+        </p>
+        <div class="hero-cta">
+          <a href="chi-sono.html" class="btn btn-primary">Scopri di più</a>
+          <a href="contatti.html" class="btn btn-outline">Contattami</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <div class="card reveal tilt">
+        <div class="card-icon">✉️</div>
+        <h2>Contatti</h2>
+        <p>Vuoi collaborare o semplicemente fare due chiacchiere? Scrivimi!</p>
+        <p class="preview-email">gpeluso03@gmail.com</p>
+        <a href="contatti.html" class="btn btn-primary">Vai ai contatti</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Giulio Peluso</p>
+  </footer>
+
+  <script src="Javascript/logic.js"></script>
+</body>
+</html>
